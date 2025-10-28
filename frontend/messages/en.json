@@ -1,0 +1,48 @@
+{
+    "homepage": {
+      "trustedBy": "Trusted by 100K+",
+      "hero": {
+        "title": "Craft Your Perfect Journey, Create Timeless Memories",
+        "description": "Experience curated luxury travel planning with AI-powered recommendations. From hidden gems to iconic destinations, every journey is tailored to perfection.",
+        "ctaButton": "Start Your Journey"
+      },
+      "newsletter": {
+        "title": "Subscribe for exclusive travel insights and offers",
+        "placeholder": "your@email.com",
+        "successMessage": "Email sent successfully",
+        "errorMessage": "Failed to send email"
+      },
+      "features": {
+        "title": "Luxury Planning Features",
+        "subtitle": "Everything you need for the perfect vacation experience"
+      },
+      "destinations": {
+        "title": "Explore World-Class Destinations with Confidence",
+        "subtitle": "Join millions of discerning travelers who trust Lumotrip for unforgettable experiences.",
+        "searchPlaceholder": "Where would you like to go?"
+      },
+      "stats": {
+        "activeUsers": {
+          "label": "Active Users",
+          "value": "100K"
+        },
+        "tripsPlanned": {
+          "label": "Trips Planned",
+          "value": "500K"
+        },
+        "reviews": {
+          "label": "5-Star Reviews",
+          "value": "120K"
+        },
+        "happyTravelers": {
+          "label": "Happy Travelers",
+          "value": "200M"
+        }
+      },
+      "testimonials": {
+        "title": "What Our Travelers Say",
+        "subtitle": "Real stories from real travelers who discovered their perfect journeys with us",
+        "travelerSays": "Traveler Says"
+      }
+    }
+  }

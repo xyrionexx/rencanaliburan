@@ -1,0 +1,48 @@
+{
+    "homepage": {
+      "trustedBy": "Dipercaya oleh 100K+",
+      "hero": {
+        "title": "Ciptakan Perjalanan Sempurna Anda, Wujudkan Kenangan Abadi",
+        "description": "Rasakan perencanaan perjalanan mewah yang dikurasi dengan rekomendasi bertenaga AI. Dari permata tersembunyi hingga destinasi ikonik, setiap perjalanan disesuaikan dengan sempurna.",
+        "ctaButton": "Mulai Perjalanan Anda"
+      },
+      "newsletter": {
+        "title": "Berlangganan untuk wawasan perjalanan eksklusif dan penawaran",
+        "placeholder": "email@anda.com",
+        "successMessage": "Email berhasil dikirim",
+        "errorMessage": "Gagal mengirim email"
+      },
+      "features": {
+        "title": "Fitur Perencanaan Mewah",
+        "subtitle": "Semua yang Anda butuhkan untuk pengalaman liburan yang sempurna"
+      },
+      "destinations": {
+        "title": "Jelajahi Destinasi Kelas Dunia dengan Percaya Diri",
+        "subtitle": "Bergabunglah dengan jutaan wisatawan cerdas yang mempercayai Lumotrip untuk pengalaman tak terlupakan.",
+        "searchPlaceholder": "Mau pergi ke mana?"
+      },
+      "stats": {
+        "activeUsers": {
+          "label": "Pengguna Aktif",
+          "value": "100K"
+        },
+        "tripsPlanned": {
+          "label": "Perjalanan Direncanakan",
+          "value": "500K"
+        },
+        "reviews": {
+          "label": "Ulasan Bintang 5",
+          "value": "120K"
+        },
+        "happyTravelers": {
+          "label": "Wisatawan Puas",
+          "value": "200M"
+        }
+      },
+      "testimonials": {
+        "title": "Apa Kata Wisatawan Kami",
+        "subtitle": "Cerita nyata dari wisatawan nyata yang menemukan perjalanan sempurna mereka bersama kami",
+        "travelerSays": "Kata Wisatawan"
+      }
+    }
+  }
