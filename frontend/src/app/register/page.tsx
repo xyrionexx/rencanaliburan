@@ -4,6 +4,7 @@ import type React from "react";
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import { API_ENDPOINTS } from "@/config/api";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -94,7 +95,7 @@ export default function SignUpForm() {
     setIsSubmitting(true);
     try {
       // Register to Django backend
-      const response = await fetch("http://api.borrowfy.site/api/register/", {
+      const response = await fetch(API_ENDPOINTS.REGISTER, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

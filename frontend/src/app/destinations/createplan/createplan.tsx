@@ -1,5 +1,6 @@
 "use client";
 import { useState, useEffect } from "react";
+import { API_ENDPOINTS } from "@/config/api";
 import type React from "react";
 import { useSession } from "next-auth/react";
 import { useSearchParams, useRouter } from "next/navigation";
@@ -101,7 +102,7 @@ export default function RencanaLiburanPage() {
         headers["X-User-Email"] = session.user.email;
       }
 
-      const response = await fetch("http://api.borrowfy.site/api/rencana/", {
+      const response = await fetch(API_ENDPOINTS.RENCANA, {
         method: "POST",
         headers,
         credentials: "include", // Important for session-based auth
@@ -173,7 +174,7 @@ export default function RencanaLiburanPage() {
 
       try {
         const response = await fetch(
-          `http://api.borrowfy/api/destinasi/${destinationId}/`
+          API_ENDPOINTS.DESTINASI_BY_ID(destinationId)
         );
         if (!response.ok) throw new Error("Gagal memuat data destinasi");
         const data = await response.json();

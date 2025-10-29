@@ -1,5 +1,6 @@
 "use client";
 import { useEffect, useState, useMemo } from "react";
+import { API_ENDPOINTS } from "@/config/api";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -49,7 +50,7 @@ export default function DestinasiPage() {
   const fetchDestinasi = async () => {
     try {
       setLoading(true);
-      const response = await fetch("http://api.borrowfy.site/api/destinasi/");
+      const response = await fetch(API_ENDPOINTS.DESTINASI);
       if (!response.ok) throw new Error("Gagal mengambil data");
       const data = await response.json();
       setDestinasi(data);

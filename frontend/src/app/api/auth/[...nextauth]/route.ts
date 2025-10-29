@@ -2,6 +2,7 @@ import NextAuth from "next-auth";
 import GoogleProvider from "next-auth/providers/google";
 import GitHubProvider from "next-auth/providers/github";
 import CredentialsProvider from "next-auth/providers/credentials";
+import { API_ENDPOINTS } from "@/config/api";
 
 
 
@@ -23,7 +24,7 @@ const handler = NextAuth({
   },
   async authorize(credentials) {
     try {
-      const res = await fetch("http://api.borrowfy.site/api/login/", {
+      const res = await fetch(API_ENDPOINTS.LOGIN, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -51,13 +52,13 @@ const handler = NextAuth({
       try {
         // Cek apakah user sudah ada di Django
         const check = await fetch(
-          `http://api.borrowfy.site/api/users/check/?email=${user.email}`
+          API_ENDPOINTS.CHECK_USER(user.email!)
         );
         const exists = await check.json();
 
         if (!exists.exists) {
           // Jika belum, buat user baru di Django
-          await fetch("http://api.borrowfy.site/api/register", {
+          await fetch(API_ENDPOINTS.REGISTER, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({

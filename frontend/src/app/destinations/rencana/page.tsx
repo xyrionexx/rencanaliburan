@@ -1,5 +1,6 @@
 "use client";
 import { useState, useEffect, useCallback } from "react";
+import { API_ENDPOINTS } from "@/config/api";
 import { useRouter } from "next/navigation";
 import { useSession } from "next-auth/react";
 import {
@@ -90,7 +91,7 @@ export default function RencanaPage() {
         headers["X-User-Email"] = session.user.email;
       }
 
-      const response = await fetch("http://api.borrowfy.site/api/rencana/", {
+      const response = await fetch(API_ENDPOINTS.RENCANA, {
         method: "GET",
         headers,
         credentials: "include", // Important for session-based auth

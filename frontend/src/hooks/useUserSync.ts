@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { useSession } from "next-auth/react";
+import { API_ENDPOINTS } from "@/config/api";
 
 /**
  * Custom hook to automatically sync NextAuth user to Django database
@@ -16,7 +17,7 @@ export function useUserSync() {
       }
 
       try {
-        const response = await fetch("http://api.borrowfy.site/api/sync-user/", {
+        const response = await fetch(API_ENDPOINTS.SYNC_USER, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
