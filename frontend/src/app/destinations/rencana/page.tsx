@@ -53,10 +53,10 @@ interface VacationPlan {
 export default function RencanaPage() {
   const { data: session, status } = useSession();
   const router = useRouter();
-  
+
   // Auto-sync user to Django database after NextAuth login
   useUserSync();
-  
+
   const [plans, setPlans] = useState<VacationPlan[]>([]);
   const [loading, setLoading] = useState(true);
   const [selectedPlan, setSelectedPlan] = useState<VacationPlan | null>(null);
@@ -90,7 +90,7 @@ export default function RencanaPage() {
         headers["X-User-Email"] = session.user.email;
       }
 
-      const response = await fetch("http://localhost:8000/api/rencana/", {
+      const response = await fetch("http://api.borrowfy.site/api/rencana/", {
         method: "GET",
         headers,
         credentials: "include", // Important for session-based auth
@@ -169,7 +169,6 @@ export default function RencanaPage() {
       </div>
 
       <div className="container mx-auto px-4 py-8 max-w-6xl">
-
         {plans.length === 0 ? (
           <div className="flex flex-col items-center justify-center py-20 text-center">
             <div className="rounded-full bg-muted p-6 mb-6">
@@ -261,7 +260,9 @@ export default function RencanaPage() {
                           <p className="font-semibold text-foreground">
                             {formatDate(plan.tanggal_mulai)}
                           </p>
-                          <p className="text-sm text-muted-foreground">sampai</p>
+                          <p className="text-sm text-muted-foreground">
+                            sampai
+                          </p>
                           <p className="font-semibold text-foreground">
                             {formatDate(plan.tanggal_selesai)}
                           </p>
@@ -357,10 +358,10 @@ export default function RencanaPage() {
                         )}
                       </div>
                     )}
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
+            ))}
           </div>
         )}
       </div>

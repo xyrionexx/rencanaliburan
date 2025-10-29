@@ -3,6 +3,8 @@ import GoogleProvider from "next-auth/providers/google";
 import GitHubProvider from "next-auth/providers/github";
 import CredentialsProvider from "next-auth/providers/credentials";
 
+
+
 const handler = NextAuth({
   providers: [
     GoogleProvider({
@@ -10,18 +12,18 @@ const handler = NextAuth({
       clientSecret: process.env.GOOGLE_CLIENT_SECRET!,
     }),
     GitHubProvider({
-      clientId: process.env.GITHUB_ID!,
-      clientSecret: process.env.GITHUB_SECRET!,
+      clientId: process.env.GITHUB_CLIENT_ID!,
+      clientSecret: process.env.GITHUB_CLIENT_SECRET!,
     }),
     CredentialsProvider({
-  name: "Credentials",
-  credentials: {
-    email: { label: "Email", type: "text" },
-    password: { label: "Password", type: "password" },
+      name: "Credentials",
+      credentials: {
+        email: { label: "Email", type: "text" },
+        password: { label: "Password", type: "password" },
   },
   async authorize(credentials) {
     try {
-      const res = await fetch("http://localhost:8000/api/login/", {
+      const res = await fetch("http://api.borrowfy.site/api/login/", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -49,13 +51,13 @@ const handler = NextAuth({
       try {
         // Cek apakah user sudah ada di Django
         const check = await fetch(
-          `http://localhost:8000/api/users/check/?email=${user.email}`
+          `http://api.borrowfy.site/api/users/check/?email=${user.email}`
         );
         const exists = await check.json();
 
         if (!exists.exists) {
           // Jika belum, buat user baru di Django
-          await fetch("http://localhost:8000/api/register", {
+          await fetch("http://api.borrowfy.site/api/register", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({
@@ -86,6 +88,8 @@ const handler = NextAuth({
 
   session: { strategy: "jwt" },
   secret: process.env.NEXTAUTH_SECRET,
+  
 });
+
 
 export { handler as GET, handler as POST };

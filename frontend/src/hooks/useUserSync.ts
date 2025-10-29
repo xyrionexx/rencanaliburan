@@ -16,7 +16,7 @@ export function useUserSync() {
       }
 
       try {
-        const response = await fetch("http://localhost:8000/api/sync-user/", {
+        const response = await fetch("http://api.borrowfy.site/api/sync-user/", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",

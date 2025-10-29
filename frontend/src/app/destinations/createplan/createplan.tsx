@@ -101,7 +101,7 @@ export default function RencanaLiburanPage() {
         headers["X-User-Email"] = session.user.email;
       }
 
-      const response = await fetch("http://localhost:8000/api/rencana/", {
+      const response = await fetch("http://api.borrowfy.site/api/rencana/", {
         method: "POST",
         headers,
         credentials: "include", // Important for session-based auth
@@ -173,7 +173,7 @@ export default function RencanaLiburanPage() {
 
       try {
         const response = await fetch(
-          `http://localhost:8000/api/destinasi/${destinationId}/`
+          `http://api.borrowfy/api/destinasi/${destinationId}/`
         );
         if (!response.ok) throw new Error("Gagal memuat data destinasi");
         const data = await response.json();

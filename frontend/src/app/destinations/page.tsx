@@ -21,10 +21,10 @@ interface Destinasi {
 export default function DestinasiPage() {
   const router = useRouter();
   const { data: session, status } = useSession();
-  
+
   // Auto-sync user to Django database after NextAuth login
   useUserSync();
-  
+
   const [destinasi, setDestinasi] = useState<Destinasi[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -49,7 +49,7 @@ export default function DestinasiPage() {
   const fetchDestinasi = async () => {
     try {
       setLoading(true);
-      const response = await fetch("http://localhost:8000/api/destinasi/");
+      const response = await fetch("http://api.borrowfy.site/api/destinasi/");
       if (!response.ok) throw new Error("Gagal mengambil data");
       const data = await response.json();
       setDestinasi(data);
@@ -275,10 +275,7 @@ export default function DestinasiPage() {
                       </h3>
 
                       <div className="flex items-center gap-2 text-muted-foreground mb-4">
-                        <MapPin
-                          size={16}
-                          className="text-primary shrink-0"
-                        />
+                        <MapPin size={16} className="text-primary shrink-0" />
                         <span className="text-sm font-medium">
                           {item.lokasi}
                         </span>

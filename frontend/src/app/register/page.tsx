@@ -14,7 +14,16 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { AlertCircle, CheckCircle2, Eye, EyeOff, UserPlus, Mail, Lock, User } from "lucide-react";
+import {
+  AlertCircle,
+  CheckCircle2,
+  Eye,
+  EyeOff,
+  UserPlus,
+  Mail,
+  Lock,
+  User,
+} from "lucide-react";
 
 export default function SignUpForm() {
   const router = useRouter();
@@ -85,7 +94,7 @@ export default function SignUpForm() {
     setIsSubmitting(true);
     try {
       // Register to Django backend
-      const response = await fetch("http://localhost:8000/api/register/", {
+      const response = await fetch("http://api.borrowfy.site/api/register/", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -107,7 +116,7 @@ export default function SignUpForm() {
 
       // Show success message
       setSubmitSuccess(true);
-      
+
       // Clear form
       setFormData({
         fullName: "",
@@ -120,10 +129,12 @@ export default function SignUpForm() {
       setTimeout(() => {
         router.push("/login");
       }, 2000);
-      
     } catch (error) {
-      setErrors({ 
-        submit: error instanceof Error ? error.message : "Terjadi kesalahan saat membuat akun" 
+      setErrors({
+        submit:
+          error instanceof Error
+            ? error.message
+            : "Terjadi kesalahan saat membuat akun",
       });
     } finally {
       setIsSubmitting(false);
@@ -137,7 +148,9 @@ export default function SignUpForm() {
           <div className="mx-auto w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center">
             <UserPlus className="w-6 h-6 text-primary" />
           </div>
-          <CardTitle className="text-2xl font-semibold text-foreground">Buat Akun Baru</CardTitle>
+          <CardTitle className="text-2xl font-semibold text-foreground">
+            Buat Akun Baru
+          </CardTitle>
           <CardDescription className="text-muted-foreground">
             Daftar sekarang untuk memulai merencanakan perjalanan impian Anda
           </CardDescription>
@@ -147,16 +160,23 @@ export default function SignUpForm() {
             <div className="mb-4 p-4 bg-primary/10 border border-primary/20 rounded-lg">
               <div className="flex items-center gap-2 mb-2">
                 <CheckCircle2 className="w-5 h-5 text-primary" />
-                <p className="text-sm font-semibold text-foreground">Akun berhasil dibuat!</p>
+                <p className="text-sm font-semibold text-foreground">
+                  Akun berhasil dibuat!
+                </p>
               </div>
-              <p className="text-xs text-muted-foreground">Mengalihkan ke halaman login...</p>
+              <p className="text-xs text-muted-foreground">
+                Mengalihkan ke halaman login...
+              </p>
             </div>
           )}
 
           <form onSubmit={handleSubmit} className="space-y-4">
             {/* Full Name Field */}
             <div className="space-y-2">
-              <Label htmlFor="fullName" className="text-sm font-medium text-foreground flex items-center gap-2">
+              <Label
+                htmlFor="fullName"
+                className="text-sm font-medium text-foreground flex items-center gap-2"
+              >
                 <User className="w-4 h-4 text-primary" />
                 Nama Lengkap
               </Label>
@@ -180,7 +200,10 @@ export default function SignUpForm() {
 
             {/* Email Field */}
             <div className="space-y-2">
-              <Label htmlFor="email" className="text-sm font-medium text-foreground flex items-center gap-2">
+              <Label
+                htmlFor="email"
+                className="text-sm font-medium text-foreground flex items-center gap-2"
+              >
                 <Mail className="w-4 h-4 text-primary" />
                 Email
               </Label>
@@ -204,7 +227,10 @@ export default function SignUpForm() {
 
             {/* Password Field */}
             <div className="space-y-2">
-              <Label htmlFor="password" className="text-sm font-medium text-foreground flex items-center gap-2">
+              <Label
+                htmlFor="password"
+                className="text-sm font-medium text-foreground flex items-center gap-2"
+              >
                 <Lock className="w-4 h-4 text-primary" />
                 Password
               </Label>
@@ -244,7 +270,10 @@ export default function SignUpForm() {
 
             {/* Confirm Password Field */}
             <div className="space-y-2">
-              <Label htmlFor="confirmPassword" className="text-sm font-medium text-foreground flex items-center gap-2">
+              <Label
+                htmlFor="confirmPassword"
+                className="text-sm font-medium text-foreground flex items-center gap-2"
+              >
                 <Lock className="w-4 h-4 text-primary" />
                 Konfirmasi Password
               </Label>
@@ -291,9 +320,9 @@ export default function SignUpForm() {
             )}
 
             {/* Submit Button */}
-            <Button 
-              type="submit" 
-              className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-medium" 
+            <Button
+              type="submit"
+              className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-medium"
               disabled={isSubmitting}
             >
               {isSubmitting ? (
@@ -318,7 +347,7 @@ export default function SignUpForm() {
                 <span className="bg-card px-2 text-muted-foreground">atau</span>
               </div>
             </div>
-            
+
             <p className="text-center text-sm text-muted-foreground">
               Sudah punya akun?{" "}
               <a
