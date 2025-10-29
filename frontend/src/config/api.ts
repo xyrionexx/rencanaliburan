@@ -4,7 +4,7 @@
  */
 
 // Get API URL from environment variable or use default
-export const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://api.borrowfy.site';
+export const API_URL = process.env.NEXT_PUBLIC_API_URL || 'https://api.borrowfy.site';
 
 // API Endpoints
 export const API_ENDPOINTS = {
