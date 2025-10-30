@@ -198,21 +198,25 @@ export default function HomePage() {
             <p className="text-sm sm:text-base text-gray-700 dark:text-gray-300 font-medium">
               Subscribe for exclusive travel insights and offers
             </p>
-            <div className="parentInputEmail flex items-center gap-3">
+            <form onSubmit={handleSubmit} className="parentInputEmail flex items-center gap-3">
               <div className="inputEmail backdrop-blur-sm bg-white/50 dark:bg-gray-800/50 border-2 border-gray-200 dark:border-gray-700 flex rounded-full w-full sm:w-[65%] lg:w-[55%] px-4 py-2.5 justify-start items-center gap-3 shadow-lg hover:shadow-xl transition-shadow duration-300">
                 <Icon
                   icon="material-symbols:mail-outline"
                   className="text-xl sm:text-2xl dark:text-gray-700"
                 />
                 <input
-                  type="text"
+                  type="email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="your@email.com"
                   className="grow outline-none text-sm sm:text-base bg-transparent placeholder:text-gray-400"
+                  required
                 />
               </div>
-              <button className="group bg-blue-300 dark:bg-gray-700 p-2.5 rounded-full shrink-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110">
+              <button 
+                type="submit"
+                className="group bg-blue-300 dark:bg-gray-700 p-2.5 rounded-full shrink-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110"
+              >
                 <Icon
                   icon="line-md:arrow-up"
                   width="30"
@@ -220,7 +224,7 @@ export default function HomePage() {
                   className="rotate-40 w-6 h-6 sm:w-7 sm:h-7 lg:w-[30px] lg:h-[30px] text-white group-hover:rotate-50 transition-transform duration-300"
                 />
               </button>
-            </div>
+            </form>
           </div>
         </div>
 

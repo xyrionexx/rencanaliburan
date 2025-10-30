@@ -4,15 +4,15 @@
  */
 
 // Get API URL from environment variable or use default
-export const API_URL = process.env.NEXT_PUBLIC_API_URL || 'https://api.borrowfy.site';
+export const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://api.borrowfy.site';
 
 // API Endpoints
 export const API_ENDPOINTS = {
   // Auth endpoints
-  LOGIN: `${API_URL}/api/login/`,
-  REGISTER: `${API_URL}/api/register/`,
-  SYNC_USER: `${API_URL}/api/sync-user/`,
-  CHECK_USER: (email: string) => `${API_URL}/api/users/check/?email=${email}`,
+  LOGIN: `http://localhost:8000/api/login/`,
+  REGISTER: `http://localhost:8000/api/register/`,
+  SYNC_USER: `http://localhost:8000/api/sync-user/`,
+  CHECK_USER: (email: string) => `http://localhost:8000/api/users/check/?email=${email}`,
   
   // Destination endpoints
   DESTINASI: `${API_URL}/api/destinasi/`,
