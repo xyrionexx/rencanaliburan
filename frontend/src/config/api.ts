@@ -10,9 +10,9 @@ export const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://api.borrowfy.s
 export const API_ENDPOINTS = {
   // Auth endpoints
   LOGIN: `http://localhost:8000/api/login/`,
-  REGISTER: `http://localhost:8000/api/register/`,
-  SYNC_USER: `http://localhost:8000/api/sync-user/`,
-  CHECK_USER: (email: string) => `http://localhost:8000/api/users/check/?email=${email}`,
+  REGISTER: `${API_URL}/api/register/`,
+  SYNC_USER: `${API_URL}/api/sync-user/`,
+  CHECK_USER: (email: string) => `${API_URL}/api/users/check/?email=${email}`,
   
   // Destination endpoints
   DESTINASI: `${API_URL}/api/destinasi/`,
