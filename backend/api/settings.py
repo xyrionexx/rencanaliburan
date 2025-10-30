@@ -70,6 +70,13 @@ TEMPLATES = [
     },
 ]
 
+ALLOWED_HOSTS = [
+    "localhost",
+    "127.0.0.1",
+    "lumotrip.borrowfy.site",
+    "api.borrowfy.site",
+]
+
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
     "http://127.0.0.1:8000",
@@ -112,8 +119,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'liburan_db',
-        'USER': 'postgres',
-        'PASSWORD': 'postgres',
+        'USER': 'liburan',
+        'PASSWORD': 'gatauakumahpemula',
         'HOST': 'localhost',
         'PORT': '5432',
     }
